@@ -1,0 +1,93 @@
+@model List<Photo>
+@{
+    int currentPage = ViewBag.CurrentPage;
+    int totalPages = ViewBag.TotalPages;
+}
+
+<h2 class="text-center mt-3">ギャラリー</h2>
+
+<div class="gallery">
+    @foreach (var photo in Model)
+    {
+@*         <a href="/photo/@photo.PhotoId">
+            <img src="/photo/@photo.FileName" alt="写真" class="thumbnail"
+                 data-photo-id="@photo.PhotoId" />
+        </a> *@
+        <img src="/photo/@photo.FileName"
+             class="thumbnail"
+             data-photo-id="@photo.PhotoId" />
+    }
+</div>
+
+
+<div class="pagination">
+    @if (currentPage > 1)
+    {
+        <a href="/Home/Gallery?page=@(currentPage - 1)">前へ</a>
+    }
+    <span>Page @currentPage / @totalPages</span>
+    @if (currentPage < totalPages)
+    {
+        <a href="/Home/Gallery?page=@(currentPage + 1)">次へ</a>
+    }
+</div>
+
+<!-- モーダル本体 -->
+<div id="commentModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <img id="modalPhoto" src="" alt="拡大写真" style="max-width: 100%; max-height: 400px;" />
+        <input type="text" id="commentName" placeholder="あなたの名前" />
+        <textarea id="commentText" placeholder="コメントを入力"></textarea>
+        <button id="submitComment">コメントを送信</button>
+    </div>
+</div>
+
+<style>
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+        .gallery img {
+            border-radius: 8px;
+            box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+    .pagination {
+        margin-top: 20px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+
+        .pagination a {
+            background-color: #ABBAA9;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
+    .gallery-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .thumbnail {
+        width: 150px;
+        height: auto;
+        margin: 8px;
+        border-radius: 8px;
+        object-fit: cover;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+
+        .thumbnail:hover {
+            transform: scale(1.05);
+        }
+</style>

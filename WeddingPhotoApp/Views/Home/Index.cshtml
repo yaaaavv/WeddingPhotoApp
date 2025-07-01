@@ -1,0 +1,21 @@
+@{
+    ViewData["Title"] = "Home";
+}
+
+<!-- ① ヒーローブロック -->
+<section class="hero-section">
+    <picture>
+        <!-- WebP を優先。古いブラウザは JPG を fallback -->
+        <source srcset="~/images/hero.webp" type="image/webp" />
+        <img src="~/images/hero.jpg" alt="メイン写真" class="hero-img" loading="lazy" />
+    </picture>
+
+    <!-- キャッチコピー → 写真の上に重ねて表示 -->
+    <h1 class="hero-caption">Kaho &amp; Sho Wedding</h1>
+</section>
+
+<!-- ② ナビゲーションボタン -->
+<nav class="top-buttons">
+    <a href="@Url.Action("Gallery", "Home")" class="top-button">Gallery</a>
+    <a href="@Url.Action("Comments", "Photo")" class="top-button">Comment</a>
+</nav>

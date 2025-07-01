@@ -1,0 +1,46 @@
+﻿@model Photo
+@{
+    int currentPage = ViewBag.CurrentPage;
+    int totalPages = ViewBag.TotalPages;
+}
+
+@{
+    ViewData["Title"] = "コメント一覧";
+}
+
+<h2 class="text-center mt-3">📷 写真に寄せられたコメント</h2>
+
+<!-- 写真表示 -->
+<div class="text-center my-4">
+    <img src="/photo/@Model.FileName" alt="photo" class="comment-photo" />
+</div>
+
+<!-- LINE風コメント表示 -->
+<div class="chat-container">
+    @foreach (var c in Model.Comments.OrderBy(c => c.PostDate))
+    {
+        <div class="chat-bubble">
+            <strong>@c.UserName</strong>
+            <div>@c.Text</div>
+            <div class="date">@c.PostDate.ToString("yyyy/MM/dd HH:mm")</div>
+        </div>
+    }
+</div>
+
+<div class="pagination">
+    @if (currentPage > 1)
+    {
+        <a href="/Home/Gallery?page=@(currentPage - 1)">前へ</a>
+    }
+    <span>Page @currentPage / @totalPages</span>
+    @if (currentPage < totalPages)
+    {
+        <a href="/Home/Gallery?page=@(currentPage + 1)">次へ</a>
+    }
+</div>
+
+<div class="text-center my-4">
+    <a href="/photo/comments?page=@ViewBag.Page" class="btn btn-secondary">
+        ← コメント付き写真一覧に戻る
+    </a>
+</div>

@@ -1,0 +1,13 @@
+@model Photo
+<h2>@Model.FileName</h2>
+<img src="/photo/" />
+<form method="post" action="/photo/comment">
+    <input type="hidden" name="photoId" value="@Model.PhotoId" />
+    名前: <input type="text" name="userName" /><br />
+    コメント: <textarea name="text"></textarea><br />
+    <button type="submit">投稿</button>
+</form>
+@foreach (var comment in Model.Comments)
+{
+    <div><strong>@comment.UserName:</strong> @comment.Text</div>
+}

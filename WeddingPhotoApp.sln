@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36202.13 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeddingPhotoApp", "WeddingPhotoApp\WeddingPhotoApp.csproj", "{67717B54-CC61-4FA6-88D6-3B9A344AE68B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67717B54-CC61-4FA6-88D6-3B9A344AE68B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67717B54-CC61-4FA6-88D6-3B9A344AE68B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67717B54-CC61-4FA6-88D6-3B9A344AE68B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67717B54-CC61-4FA6-88D6-3B9A344AE68B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {579F9B4D-EBB3-46E5-BE61-565BCC46174F}
+	EndGlobalSection
+EndGlobal
